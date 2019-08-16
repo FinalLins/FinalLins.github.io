@@ -401,14 +401,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.1k
+                        2.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        11 分
                     </div>
                     
                 
@@ -736,6 +736,78 @@
 <p><code>this.permission = (this.permission &amp; permission) ^ this.permission;</code></p>
 </blockquote>
 <p>这样实现是否可行？</p>
+</blockquote>
+<h3 id="5-位运算算法题"><a href="#5-位运算算法题" class="headerlink" title="5. 位运算算法题"></a>5. 位运算算法题</h3><blockquote>
+<p>有 1000 个一模一样的瓶子，其中有 999 瓶是普通的水，有一瓶是毒药。任何喝下毒药的生物都会在一星期之后死亡。现在，你只有 10 只小白鼠和一星期的时间，如何检验出哪个瓶子里有毒药？<a href="https://www.zhihu.com/question/19676641/answer/12613290" target="_blank" rel="noopener">来源:知乎.黄志聪</a></p>
+</blockquote>
+<p>&emsp;&emsp;刚看到这道题目的时候基本就是懵逼状态，算法不熟悉，位运算应用也差很多。网上很多大牛前辈都都给出了答案。<br>&emsp;&emsp;根据 <code>2^10 = 1024</code> ，所以 10个 老鼠可以确定 1000个 瓶子具体哪个瓶子有毒。具体实现跟 3个 老鼠确定 8个 瓶子原理一样。(意思就是3只老鼠确定8个瓶子中哪个瓶子有毒)<br>对每个瓶子进行编号0-7对每只老鼠编号1、2、3，然后列出每只老鼠去喝水的情况：(1代表喝，0代表不喝)</p>
+<table>
+<thead>
+<tr>
+<th>1号老鼠</th>
+<th>2号老鼠</th>
+<th>3号老鼠</th>
+<th>瓶子编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<p>从上图得知：</p>
+<ol>
+<li>1号老鼠喝水编号4、5、6、7；</li>
+<li>2号老鼠喝水编号2、3、6、7；</li>
+<li>3号老鼠喝水编号1、3、5、6。</li>
+</ol>
+<p>假设1号老鼠没死，2号老鼠死了，3号老鼠也死了。那么瓶子编号就是3（<code>011</code>），根据老鼠死亡情况就可以换算出瓶子编号。</p>
+<blockquote>
+<p>哈哈，我也在努力充电中，大家一起加油哦~。</p>
 </blockquote>
 
             </div>
@@ -1186,7 +1258,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">7.5k</span>
+                <span class="white-color">7.9k</span>
             
 
             
