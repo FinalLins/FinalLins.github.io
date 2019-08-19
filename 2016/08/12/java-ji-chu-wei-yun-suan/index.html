@@ -401,14 +401,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.5k
+                        2.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        11 分
+                        12 分
                     </div>
                     
                 
@@ -658,7 +658,21 @@
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span>a <span class="token operator">:</span> a<span class="token punctuation">;</span>
     <span class="token punctuation">}</span></code></pre>
-<h4 id="4-4-权限或者状态的应用"><a href="#4-4-权限或者状态的应用" class="headerlink" title="4.4 权限或者状态的应用"></a>4.4 权限或者状态的应用</h4><p>&emsp;&emsp;通常情况下我们都是定义一堆的常量来管理权限或者状态。今天我们用一种更高级的写法来实现：</p>
+<h4 id="4-4-两个数据之间的交换"><a href="#4-4-两个数据之间的交换" class="headerlink" title="4.4 两个数据之间的交换"></a>4.4 两个数据之间的交换</h4><p>&emsp;&emsp;通常情况下实现两个数据之间交换，都是定义一个临时变量 <code>temp</code>去实现：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> temp<span class="token punctuation">;</span></code></pre>
+<p>&emsp;&emsp;通过异或计算法则 <code>a ^ b ^ b = a;</code> 可以使用如下方式实现数据交换:</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//(a ^ b) ^ b = a(a的原值)</span>
+    a <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// (a ^ b) ^ a = b(b已经经过一次赋值了，这个时候b的值就是a的原值)</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//2</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//1</span></code></pre>
+<h4 id="4-5-权限或者状态的应用"><a href="#4-5-权限或者状态的应用" class="headerlink" title="4.5 权限或者状态的应用"></a>4.5 权限或者状态的应用</h4><p>&emsp;&emsp;通常情况下我们都是定义一堆的常量来管理权限或者状态。今天我们用一种更高级的写法来实现：</p>
 <pre class=" language-java"><code class="language-java">    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Permission</span> <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_A <span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//0001</span>
         <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_B <span class="token operator">=</span> <span class="token number">0x02</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//0010</span>
@@ -805,7 +819,7 @@
 <li>2号老鼠喝水编号2、3、6、7；</li>
 <li>3号老鼠喝水编号1、3、5、6。</li>
 </ol>
-<p>假设1号老鼠没死，2号老鼠死了，3号老鼠也死了。那么瓶子编号就是3（<code>011</code>），根据老鼠死亡情况就可以换算出瓶子编号。</p>
+<p>假设1号老鼠没死，2号老鼠死了，3号老鼠也死了。那么瓶子编号就是3（<code>011</code>），根据老鼠死亡情况就可以换算出瓶子编号。</p>
 <blockquote>
 <p>哈哈，我也在努力充电中，大家一起加油哦~。</p>
 </blockquote>
@@ -992,37 +1006,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2016/08/12/java-ji-chu-wei-yun-suan/">
+                <a href="/2016/08/13/java-ji-chu-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="java基础-位运算">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="java基础-算法">
                         
-                        <span class="card-title">java基础-位运算</span>
+                        <span class="card-title">java基础-算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-一直想总结下位运算的知识点，拖延症太严重了。今日份毒鸡汤。
+今日份毒鸡汤。
 
-你这么努力，忍受了那么多寂寞和痛苦，可也没见得你有多优秀啊。
+真正努力过的人，就会真正明白，天赋有多么重要。
 
-😝
+😎
 
-1. 概述&emsp;&emsp;估计部分同学跟我一样，平时根本用不到位运算（都是在撸业务型的代
+1. 什么是算法&emsp;&emsp;算法（Algorithm）是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1031,11 +1044,14 @@
                                     Java
                                 </a>
                             
+                            <a href="/categories/Java/算法/" class="post-category" target="_blank">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1043,8 +1059,8 @@
                         <span class="chip bg-color">Java基础知识</span>
                     </a>
                     
-                    <a href="/tags/位运算/" target="_blank">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="/tags/算法/" target="_blank">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -1258,7 +1274,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">7.9k</span>
+                <span class="white-color">11.7k</span>
             
 
             
