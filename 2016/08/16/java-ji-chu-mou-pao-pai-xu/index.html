@@ -12,7 +12,7 @@
 
 🏃
 
-1. 定义&amp;emsp;&amp;emsp;它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果">
+1. 定义&amp;emsp;&amp;emsp;冒泡排序（Bubble Sort）：它重复地走访过要排序的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -374,6 +374,10 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
+                            <a href="/tags/排序算法/" target="_blank">
+                                <span class="chip bg-color">排序算法</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -405,14 +409,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.7k
+                        3.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        11 分
+                        14 分
                     </div>
                     
                 
@@ -435,7 +439,27 @@
 </blockquote>
 <p>🏃</p>
 </blockquote>
-<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p>&emsp;&emsp;它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。这个算法的名字由来是因为越小（升序）的元素会经由交换慢慢”浮”到数列的顶端。</p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p>&emsp;&emsp;冒泡排序（Bubble Sort）：它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。这个算法的名字由来是因为越小（升序）的元素会经由交换慢慢”浮”到数列的顶端。<strong>冒泡排序是一种交换排序。</strong></p>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好的时间复杂度</th>
+<th>最坏的时间复杂度</th>
+<th>空间复杂度</th>
+<th>排序方法</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$O_{(n^2)}$</td>
+<td>$O_{(n)}$</td>
+<td>$O_{(n^2)}$</td>
+<td>$O_{(1)}$</td>
+<td>内部排序(In-place)</td>
+<td>稳定</td>
+</tr>
+</tbody></table>
 <h3 id="2-原理"><a href="#2-原理" class="headerlink" title="2. 原理"></a>2. 原理</h3><p>&emsp;&emsp;冒泡排序算法的原理如下：</p>
 <ol>
 <li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
@@ -457,15 +481,13 @@
 <blockquote>
 <p>-——————————————–<br>冒泡排序 : [1, 2, 3, 4, 5, 6]<br>第1轮排序后的数组为 : [1, 2, 3, 4, 5, 6]<br>排序结束，次数 : 5<br>-——————————————–<br>$C_{min} = 5$ ，$M_{min} = 0$。 ( n 就是数组的长度 - 1)</p>
 </blockquote>
-<p>所以，冒泡排序最好的时间复杂度为 $T_{(n)} = O_{(n)}$，空间复杂度 $S_{(n)} = 0$。<strong>（去掉低阶项，去掉常数项，去掉高阶项的常参得到）</strong></p>
+<p>所以，冒泡排序最好的情况的时间复杂度为 $T_{(n)} = O_{(n)}$，空间复杂度 $S_{(n)} = O_{(1)}$。<strong>（去掉低阶项，去掉常数项，去掉高阶项的常参得到）</strong></p>
 <h4 id="3-2-最坏的情况-O-n-2"><a href="#3-2-最坏的情况-O-n-2" class="headerlink" title="3.2 最坏的情况 $O_{(n^2)}$"></a>3.2 最坏的情况 $O_{(n^2)}$</h4><p>&emsp;&emsp;若初始文件是反序的，需要进行 $n-1$ 趟排序。每趟排序要进行 $n-1$ 次关键字的比较(1 ≤ i≤ n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值。</p>
 <ul>
-<li>比较次数：T(n) = (n - 1) + (n - 2) + … + 1 = n(n - 1) / 2。<br>  时间复杂度：$C_{max} = {\frac {n {\times} (n - 1)} {2}} = O(n^2)$</li>
-<li>移动次数：S(n) = ((n - 1) + (n - 2) + … + 1) x 3 = 3n(n - 1) / 2。<br>  空间复杂度：$M_{max} = {\frac {3 {\times} n {\times} (n - 1)} {2}} = O(n^2)$</li>
+<li>比较次数：(n - 1) + (n - 2) + … + 1 = n(n - 1) / 2。  </li>
+<li>移动次数：((n - 1) + (n - 2) + … + 1) x 3 = 3n(n - 1) / 2。</li>
 </ul>
-<blockquote>
-<p><strong>去掉低阶项，去掉常数项，去掉高阶项的常参得到最后的结果。</strong></p>
-</blockquote>
+<p>所以，冒泡排序最坏的情况的时间复杂度为：$T_{(n)} = {\frac {3 {\times} n {\times} (n - 1)} {2}} = O(n^2)$，空间复杂度 $S_{(n)} = O_{(1)}$。<strong>（去掉低阶项，去掉常数项，去掉高阶项的常参得到）</strong></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Bubble</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//倒序</span>
@@ -476,7 +498,7 @@
 <span class="token punctuation">}</span></code></pre>
 <p>输出如下：</p>
 <blockquote>
-<p>-——————————————–<br>冒泡排序 : [6, 5, 4, 3, 2, 1]<br>第1轮排序后的数组为 : [5, 4, 3, 2, 1, 6]<br>第2轮排序后的数组为 : [4, 3, 2, 1, 5, 6]<br>第3轮排序后的数组为 : [3, 2, 1, 4, 5, 6]<br>第4轮排序后的数组为 : [2, 1, 3, 4, 5, 6]<br>第5轮排序后的数组为 : [1, 2, 3, 4, 5, 6]<br>排序结束，次数 : 25<br>-——————————————–<br>$C_{min} = 25$ ，$M_{min} = 75$。</p>
+<p>-——————————————–<br>冒泡排序 : [6, 5, 4, 3, 2, 1]<br>第1轮排序后的数组为 : [5, 4, 3, 2, 1, 6]<br>第2轮排序后的数组为 : [4, 3, 2, 1, 5, 6]<br>第3轮排序后的数组为 : [3, 2, 1, 4, 5, 6]<br>第4轮排序后的数组为 : [2, 1, 3, 4, 5, 6]<br>第5轮排序后的数组为 : [1, 2, 3, 4, 5, 6]<br>排序结束，次数 : 25<br>-——————————————–<br>$C_{max} = 25$ ，$M_{max} = 75$。</p>
 </blockquote>
 <h3 id="4-算法稳定性"><a href="#4-算法稳定性" class="headerlink" title="4. 算法稳定性"></a>4. 算法稳定性</h3><p>&emsp;&emsp;冒泡排序就是把小的元素往前调或者把大的元素往后调。比较是相邻的两个元素比较，交换也发生在这两个元素之间。所以，如果两个元素相等，是不会再交换的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种 <code>稳定排序算法</code>。</p>
 <h3 id="5-代码实现"><a href="#5-代码实现" class="headerlink" title="5. 代码实现"></a>5. 代码实现</h3><p>&emsp;&emsp;冒泡排序有很多种实现方法。下面我们来一一展示，先来个直观的动态图：<br></p>
@@ -526,7 +548,7 @@
 <p>仔细观察第<code>5</code>和第<code>6</code>轮输出结果，有没有发现是一模一样的？因为倒数第二轮排序，它已经完成了判断和数据交换，所以，并不需要最后一次多余的排序流程。那么咱们就可以对外层循环的次数下手了。</p>
 </blockquote>
 </blockquote>
-<h4 id="5-2-优化版本1-1"><a href="#5-2-优化版本1-1" class="headerlink" title="5.2 优化版本1.1"></a>5.2 优化版本1.1</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Bubble</span> <span class="token punctuation">{</span>
+<h4 id="5-2-优化版本1-1"><a href="#5-2-优化版本1-1" class="headerlink" title="5.2  优化版本1.1"></a>5.2  优化版本1.1</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Bubble</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String name <span class="token operator">=</span> <span class="token string">"冒泡排序"</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -660,6 +682,7 @@
             <span class="token punctuation">}</span>
             <span class="token function">printLoop</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">printLoop</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> arr<span class="token punctuation">,</span> <span class="token string">"没有数据交换，终止后面无效的操作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
@@ -673,9 +696,12 @@
 <p>同学们看到这里就会说了，跟1.2没什么区别啊。那我们换一组源数据再来看看。</p>
 </blockquote>
 <p><code>int[] arr = new int[]{1, 2, 0, 3, 5, 4};</code></p>
-<p>-——————————————–<br>冒泡排序v1.3 : [1, 2, 0, 3, 5, 4]<br>第1轮排序后的数组为 : [1, 0, 2, 3, 4, 5]<br>第2轮排序后的数组为 : [0, 1, 2, 3, 4, 5]<br>第3轮排序后的数组为 : [0, 1, 2, 3, 4, 5]<br>排序结束，次数 : 12<br>-——————————————–</p>
+<p>-——————————————–<br>冒泡排序v1.3 : [1, 2, 0, 3, 5, 4]<br>第1轮排序后的数组为 : [1, 0, 2, 3, 4, 5]<br>第2轮排序后的数组为 : [0, 1, 2, 3, 4, 5]<br>第3轮排序后的数组为 : [0, 1, 2, 3, 4, 5][没有数据交换，终止后面无效的操作]<br>排序结束，次数 : 12<br>-——————————————–</p>
 <blockquote>
 <p>看到没，同学们，当数据源越接近有序的情况，这种方法的优势越明显。</p>
+<blockquote>
+<p>第 <code>2</code> 轮 是交换后的结果，第 <code>3</code> 轮是检查是否有交换的情况。<br>所以这里的输出第 <code>2</code> 轮 和 第 <code>3</code> 轮一样，是没有问题的。</p>
+</blockquote>
 </blockquote>
 </blockquote>
 <p>好了，冒泡排序我们就介绍到这里啦。代码中部分方法我公布在下面：</p>
@@ -685,15 +711,21 @@
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String SORT_PRINT_HEADER <span class="token operator">=</span> <span class="token string">"%sv%s : "</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String SORT_PRINT_LOOP <span class="token operator">=</span> <span class="token string">"第%d轮排序后的数组为 : "</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String SORT_PRINT_FOOTER <span class="token operator">=</span> <span class="token string">"排序结束，次数 : %d"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String SORT_PRINT_REMARK <span class="token operator">=</span> <span class="token string">"[%s]"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> LOG_ENABLE <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printArray</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> null <span class="token operator">||</span> <span class="token operator">!</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printHeader</span><span class="token punctuation">(</span>String sortName<span class="token punctuation">,</span> String version<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LINE<span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>SORT_PRINT_HEADER<span class="token punctuation">,</span> sortName<span class="token punctuation">,</span> version<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -701,26 +733,122 @@
     <span class="token punctuation">}</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printLoop</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>SORT_PRINT_LOOP<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printLoop</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> String remark<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>SORT_PRINT_LOOP<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>SORT_PRINT_REMARK<span class="token punctuation">,</span> remark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">printFooter</span><span class="token punctuation">(</span><span class="token keyword">int</span> count<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>SORT_PRINT_FOOTER<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>LINE<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//int temp = arr[i];</span>
-        <span class="token comment" spellcheck="true">//arr[i] = arr[j]</span>
-        <span class="token comment" spellcheck="true">//arr[j] = arr[i];</span>
+       <span class="token keyword">int</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+       arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+       arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// if (i == j) {   //用位运算的方式这里要注意一下。</span>
+        <span class="token comment" spellcheck="true">//     return;</span>
+        <span class="token comment" spellcheck="true">// }</span>
+        <span class="token comment" spellcheck="true">// arr[i] = arr[i] ^ arr[j];</span>
+        <span class="token comment" spellcheck="true">// arr[j] = arr[i] ^ arr[j];</span>
+        <span class="token comment" spellcheck="true">// arr[i] = arr[i] ^ arr[j];</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 <blockquote>
 <p>眼尖的同学会发现数据交换里面用的是异或。对的，这里用的是<a href="/2016/08/12/java-ji-chu-wei-yun-suan/">位运算</a>的里面的异或的计算法则<code>a ^ b ^ b = a;</code></p>
+</blockquote>
+<h3 id="6-实践是检验真理的唯一标准"><a href="#6-实践是检验真理的唯一标准" class="headerlink" title="6. 实践是检验真理的唯一标准"></a>6. 实践是检验真理的唯一标准</h3><p>&emsp;&emsp;是骡子是马拉出来溜溜就知道啦。（记得把日志打印关掉哦，不然要很久很久，打印日志也是需要时间滴）</p>
+<h4 id="6-1-测试一（纯随机数）"><a href="#6-1-测试一（纯随机数）" class="headerlink" title="6.1 测试一（纯随机数）"></a>6.1 测试一（纯随机数）</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> length <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    Random random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> val <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>length <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr3<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr4<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">long</span> time <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Bubble<span class="token punctuation">.</span><span class="token function">sort10</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> time1 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Bubble<span class="token punctuation">.</span><span class="token function">sort11</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> time2 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Bubble<span class="token punctuation">.</span><span class="token function">sort12</span><span class="token punctuation">(</span>arr3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> time3 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Bubble<span class="token punctuation">.</span><span class="token function">sort13</span><span class="token punctuation">(</span>arr4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> time4 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"======================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Bubble.sort10 : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>time1 <span class="token operator">-</span> time<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Bubble.sort11 : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>time2 <span class="token operator">-</span> time1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Bubble.sort12 : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>time3 <span class="token operator">-</span> time2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Bubble.sort13 : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>time4 <span class="token operator">-</span> time3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p>=======================================<br>Bubble.sort10 : 24606<br>Bubble.sort11 : 23378<br>Bubble.sort12 : 17625<br>Bubble.sort13 : 19842</p>
+<blockquote>
+<p>看完结果，是不是觉得sort13还不如sort12的执行效率高。</p>
+</blockquote>
+</blockquote>
+<h4 id="6-2-测试二（前面一半有序，后面一半无序）"><a href="#6-2-测试二（前面一半有序，后面一半无序）" class="headerlink" title="6.2 测试二（前面一半有序，后面一半无序）"></a>6.2 测试二（前面一半有序，后面一半无序）</h4><p>&emsp;&emsp;别着急，我们再来测试一组数据：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//代码省略...</span>
+
+    <span class="token keyword">int</span> half <span class="token operator">=</span> length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> val <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">>=</span> half<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            val <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>half <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> half<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr3<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr4<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//代码省略...</span></code></pre>
+<p>结果如下：</p>
+<blockquote>
+<p>=======================================<br>Bubble.sort10 : 17210<br>Bubble.sort11 : 16770<br>Bubble.sort12 : 10191<br>Bubble.sort13 : 9817</p>
+</blockquote>
+<h4 id="6-3-测试三（所有数据有序）"><a href="#6-3-测试三（所有数据有序）" class="headerlink" title="6.3 测试三（所有数据有序）"></a>6.3 测试三（所有数据有序）</h4><p>&emsp;&emsp;最后我们再来测试一组数据：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//代码省略...</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> val <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr3<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        arr4<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//代码省略...</span></code></pre>
+<p>结果如下：</p>
+<blockquote>
+<p>=======================================<br>Bubble.sort10 : 2609<br>Bubble.sort11 : 2315<br>Bubble.sort12 : 1135<br>Bubble.sort13 : 2</p>
+</blockquote>
+<h4 id="6-4-总结"><a href="#6-4-总结" class="headerlink" title="6.4 总结"></a>6.4 总结</h4><ul>
+<li>前面三种冒泡排序依次来看，效率越来越高，跟数据无关。</li>
+<li>sort13对数据是有要求的，越接近有序的数组，效率越高。</li>
+</ul>
+<blockquote>
+<p>适用的情景为数据量量不大，对稳定性有要求，且数据基本有序的情况下。</p>
 </blockquote>
 
             </div>
@@ -905,37 +1033,35 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2016/08/16/java-ji-chu-mou-pao-pai-xu/">
+                <a href="/2016/08/19/java-ji-chu-xuan-ze-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="java基础-冒泡排序">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="java基础-选择排序">
                         
-                        <span class="card-title">java基础-冒泡排序</span>
+                        <span class="card-title">java基础-选择排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-今日份鸡汤，总喝毒鸡汤也不好。哈哈~
+今日份鸡汤。经常要鼓励鼓励自己呀~
 
-没有人可以回到过去重新开始，但谁都可以从现在开始，书写一个全然不同的结局。
+宁可输给强大的敌人,不要输给失控的自己。
 
-🏃
 
-1. 定义&emsp;&emsp;它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果
+1. 定义&emsp;&emsp;选择排序(Selection Sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -952,7 +1078,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -962,6 +1087,10 @@
                     
                     <a href="/tags/算法/" target="_blank">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/排序算法/" target="_blank">
+                        <span class="chip bg-color">排序算法</span>
                     </a>
                     
                 </div>
@@ -1190,7 +1319,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">11.7k</span>
+                <span class="white-color">18.1k</span>
             
 
             
