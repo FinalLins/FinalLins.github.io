@@ -528,7 +528,7 @@
 </blockquote>
 <p>对比<a href="/2016/08/19/java-ji-chu-cha-ru-pai-xu/">直接插入排序</a>的测试结果来看，时间快了太多了。</p>
 </blockquote>
-<h4 id="5-2-测试二（前面一半有序，后面一半无序）"><a href="#5-2-测试二（前面一半有序，后面一半无序）" class="headerlink" title="5.2 测试二（前面一半有序，后面一半无序）"></a>5.2 测试二（前面一半有序，后面一半无序）</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//代码省略...</span>
+<h4 id="6-2-测试二（前面一半有序，后面一半无序）"><a href="#6-2-测试二（前面一半有序，后面一半无序）" class="headerlink" title="6.2 测试二（前面一半有序，后面一半无序）"></a>6.2 测试二（前面一半有序，后面一半无序）</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//代码省略...</span>
 
     <span class="token keyword">int</span> half <span class="token operator">=</span> length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -548,7 +548,7 @@
 <p>=======================================<br>Shell.sort10 : 103<br>Shell.sort11 : 60<br>=======================================<br>Shell.sort10 : 121<br>Shell.sort11 : 84<br>=======================================<br>Shell.sort10 : 112<br>Shell.sort11 : 56</p>
 </blockquote>
 </blockquote>
-<h4 id="5-3-测试三（所有数据有序）"><a href="#5-3-测试三（所有数据有序）" class="headerlink" title="5.3 测试三（所有数据有序）"></a>5.3 测试三（所有数据有序）</h4><p>&emsp;&emsp;最后我们再来测试一组数据：</p>
+<h4 id="6-3-测试三（所有数据有序）"><a href="#6-3-测试三（所有数据有序）" class="headerlink" title="6.3 测试三（所有数据有序）"></a>6.3 测试三（所有数据有序）</h4><p>&emsp;&emsp;最后我们再来测试一组数据：</p>
 <pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//代码省略...</span>
 
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -564,7 +564,7 @@
 <p>=======================================<br>Shell.sort10 : 95<br>Shell.sort11 : 55<br>=======================================<br>Shell.sort10 : 99<br>Shell.sort11 : 68<br>=======================================<br>Shell.sort10 : 100<br>Shell.sort11 : 64</p>
 </blockquote>
 </blockquote>
-<h4 id="5-4-总结"><a href="#5-4-总结" class="headerlink" title="5.4 总结"></a>5.4 总结</h4><p>&emsp;&emsp;从所有数据观察，区别不大。相对于插入排序而言，比较较远距离的数据，使得数据移动跨过多个元素，进行一次比较可能会消除多个元素的交换。</p>
+<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h3><p>&emsp;&emsp;从所有数据观察，区别不大。相对于插入排序而言，比较较远距离的数据，使得数据移动跨过多个元素，进行一次比较可能会消除多个元素的交换。</p>
 <blockquote>
 <p>对于中等大小的数据，希尔排序的运行时间是可以接受的。它的代码量不大，也不需要使用额外的内存空间。<strong>要注意的是它的不稳定性，如果对稳定性有要求那就不能选择希尔排序了。</strong></p>
 </blockquote>
