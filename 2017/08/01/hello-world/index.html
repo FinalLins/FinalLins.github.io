@@ -4,11 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="java基础-堆排序, android | java | 篮球 | 健身">
-    <meta name="description" content="1. 定义&amp;emsp;&amp;emsp;堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。排序思想：
-
-将初始待排序关键字序列(R1,R2….Rn)构建成大顶堆，此堆为初始的无序区；
-将堆顶元素R[1]与最后一个元素R[n]交">
+    <meta name="keywords" content="Hello World, android | java | 篮球 | 健身">
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>java基础-堆排序 | FinalLins</title>
+    <title>Hello World | FinalLins</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -245,13 +242,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        java基础-堆排序
+                        Hello World
                     </div>
                 </div>
             </div>
@@ -360,37 +357,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java基础知识/" target="_blank">
-                                <span class="chip bg-color">Java基础知识</span>
-                            </a>
-                        
-                            <a href="/tags/算法/" target="_blank">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/排序算法/" target="_blank">
-                                <span class="chip bg-color">排序算法</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
-                            </a>
-                        
-                            <a href="/categories/Java/算法/" class="post-category" target="_blank">
-                                算法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -398,21 +370,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-08-22
+                    2017-08-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        870
+                        73
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -428,81 +400,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p>&emsp;&emsp;<strong>堆排序</strong>（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。排序思想：</p>
-<ul>
-<li>将初始待排序关键字序列(R1,R2….Rn)构建成大顶堆，此堆为初始的无序区；</li>
-<li>将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,……Rn-1)和新的有序区(Rn),且满足R[1,2…n-1]&lt;=R[n]；</li>
-<li>由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,……Rn-1)调整为新堆，然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2….Rn-2)和新的有序区(Rn-1,Rn)。</li>
-<li>不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。</li>
-</ul>
-<blockquote>
-<p>总结一句话：将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。将其与末尾元素进行交换，此时末尾就为最大值。然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了</p>
-<p>对<a href="/2017/08/28/java-ji-chu-shu-ju-jie-gou-dui-heap/">数据结构-堆</a>不是很明白的同学，可以去翻翻我的博客。</p>
-</blockquote>
-<h3 id="2-算法分析"><a href="#2-算法分析" class="headerlink" title="2. 算法分析"></a>2. 算法分析</h3><p>&emsp;&emsp;堆排序是一种选择排序，整体主要由构建初始堆+交换堆顶元素和末尾元素并重建堆两部分组成。</p>
-<ul>
-<li>时间复杂度：初始堆经推导复杂度为O(n)，在交换并重建堆的过程中，需交换n-1次，而重建堆的过程中，根据完全二叉树的性质，<code>[log2(n-1),log2(n-2)...1]</code>逐步递减，近似为$nlog_{2}n$。所以堆排序时间复杂度最好和最坏情况下都是$O(nlog_{2}n)$级。</li>
-<li>空间复杂度：堆排序不要任何辅助数组，只需要一个辅助变量，所占空间是常数与n无关，所以空间复杂度为$O(1)$。</li>
-</ul>
-<h3 id="3-稳定性"><a href="#3-稳定性" class="headerlink" title="3. 稳定性"></a>3. 稳定性</h3><p>&emsp;&emsp;每次堆顶都会跟尾部元素交换，破坏了源数据，所以堆排序是一个不稳定排序。</p>
-<h3 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Heap</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String name <span class="token operator">=</span> <span class="token string">"堆排序"</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">buildMaxHeap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> length <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> lastIndex <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> max_parent_node <span class="token operator">=</span> <span class="token punctuation">(</span>lastIndex <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//计算出最后y一个的非叶结点</span>
-
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> max_parent_node<span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">adjustHeap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i<span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>LOG_ENABLE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"把源数组构建成最大堆："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">adjustHeap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token keyword">int</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        <span class="token keyword">int</span> leftChild <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> rightChild <span class="token operator">=</span> leftChild <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> maxIndex <span class="token operator">=</span> index<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>leftChild <span class="token operator">&lt;</span> length <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>leftChild<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            maxIndex <span class="token operator">=</span> leftChild<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>rightChild <span class="token operator">&lt;</span> length <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>rightChild<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            maxIndex <span class="token operator">=</span> rightChild<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>maxIndex <span class="token operator">==</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token function">swap</span><span class="token punctuation">(</span>maxIndex<span class="token punctuation">,</span> index<span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">adjustHeap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> maxIndex<span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-
-        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> null <span class="token operator">||</span> arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">int</span> length <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-            <span class="token function">printHeader</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"1.0"</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">buildMaxHeap</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>                          <span class="token comment" spellcheck="true">//构建最大堆（结点的值大于等于子结点），说明堆顶是最大值</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">int</span> index <span class="token operator">=</span> length <span class="token operator">-</span> i<span class="token punctuation">;</span>
-                <span class="token function">swap</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">//把堆顶数据和i（末尾）交换</span>
-                <span class="token function">printLoop</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> arr<span class="token punctuation">,</span> <span class="token string">"跟末尾第"</span> <span class="token operator">+</span> index <span class="token operator">+</span> <span class="token string">"交换"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token function">adjustHeap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//再次调整堆结构，让他满足堆积的特性</span>
-                <span class="token function">printLoop</span><span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> arr<span class="token punctuation">,</span> <span class="token string">"再次调整堆结构"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token function">printFooter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
-<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>&emsp;&emsp;堆排序适合处理数据量大的情况，数据呈流式输入时用堆排序也很方便。并且对稳定性没有要求。</p>
+                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             </div>
             <hr/>
@@ -665,7 +571,7 @@
         repo: 'FinalLins.github.io',
         owner: 'FinalLins',
         admin: "FinalLins",
-        id: '2017-08-22T17-00-31',
+        id: '2017-08-01T09-10-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -690,24 +596,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/08/23/java-ji-chu-shu-ju-jie-gou-shu-zu/">
+                <a href="/2017/08/09/java-ji-chu-fen-ge-fu-biao-shi-fu-he-guan-jian-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="java基础-数据结构-数组">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Java基础-分隔符、标识符和关键字">
                         
-                        <span class="card-title">java基础-数据结构-数组</span>
+                        <span class="card-title">Java基础-分隔符、标识符和关键字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 概述&emsp;&emsp;在Java中，数组是一种引用类型（不是很清楚的同学可以看看我前面的博客），数组是用来存放同一种数据类型的集合，注意只能存放同一种数据类型（Object类型数组除外）。数组引用变量只是一个引用，数组对象和数组
+                            
+今日份毒鸡汤，希望您每天都开开心心。
+
+爱笑的人运气不会太差。说实话，如果一个人运不好，我不知道他怎么笑得出来。
+
+😁
+
+1. 分隔符&emsp;&emsp;Java语言也和其他编程语言一样，使用标识符作为变量、对象的名字，也提供
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-23
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-09
                         </span>
                         <span class="publish-author">
                             
@@ -715,10 +628,6 @@
                             
                             <a href="/categories/Java/" class="post-category" target="_blank">
                                     Java
-                                </a>
-                            
-                            <a href="/categories/Java/数据结构/" class="post-category" target="_blank">
-                                    数据结构
                                 </a>
                             
                             
@@ -730,14 +639,6 @@
                     
                     <a href="/tags/Java基础知识/" target="_blank">
                         <span class="chip bg-color">Java基础知识</span>
-                    </a>
-                    
-                    <a href="/tags/数据结构/" target="_blank">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/数组/" target="_blank">
-                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
@@ -748,63 +649,37 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/2017/08/21/java-ji-chu-kuai-su-pai-xu/">
+                <a href="/2017/08/01/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="java基础-快速排序">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">java基础-快速排序</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-今日份鸡汤。如果你真的愿意去努力，那么你人生最坏的结果，也不过是大器晚成。
-
-1. 定义&emsp;&emsp;快速排序（Quicksort）是对冒泡排序的一种改进。快速排序由C. A. R. Hoare在1960年提出。&emsp;&e
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                            
-                            <a href="/categories/Java/算法/" class="post-category" target="_blank">
-                                    算法
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            FinalLins
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java基础知识/" target="_blank">
-                        <span class="chip bg-color">Java基础知识</span>
-                    </a>
-                    
-                    <a href="/tags/算法/" target="_blank">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/排序算法/" target="_blank">
-                        <span class="chip bg-color">排序算法</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -949,13 +824,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
