@@ -1,0 +1,1366 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="java基础-位运算, android | java | 篮球 | 健身">
+    <meta name="description" content="
+一直想总结下位运算的知识点，拖延症太严重了。今日份毒鸡汤。
+
+你这么努力，忍受了那么多寂寞和痛苦，可也没见得你有多优秀啊。
+
+😝
+
+1. 概述&amp;emsp;&amp;emsp;估计部分同学跟我一样，平时根本用不到位运算（都是在撸业务型的代">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>java基础-位运算 | FinalLins</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">FinalLins</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">FinalLins</div>
+        <div class="logo-desc">
+            
+            穷则独善其身，达则兼济天下。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/FinalLins" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/FinalLins" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        java基础-位运算
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java基础知识/" target="_blank">
+                                <span class="chip bg-color">Java基础知识</span>
+                            </a>
+                        
+                            <a href="/tags/位运算/" target="_blank">
+                                <span class="chip bg-color">位运算</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-08-12
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        12 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><strong>一直想总结下位运算的知识点，拖延症太严重了。</strong><br>今日份毒鸡汤。</p>
+<blockquote>
+<p>你这么努力，忍受了那么多寂寞和痛苦，可也没见得你有多优秀啊。</p>
+</blockquote>
+<p>😝</p>
+</blockquote>
+<h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><p>&emsp;&emsp;估计部分同学跟我一样，平时根本用不到位运算（都是在撸业务型的代码），但是在源码中又经常有他们的身影，看的云里雾里的。挺难受的，这次就好好复习复习基础知识。好了不啰嗦了，咱们进入正题吧。<br>&emsp;&emsp;在计算机底层所有数字都是以<code>二进制</code>形式存在的，<code>原码</code>是直接将一个数值换算成二进制数。但计算机以<code>补码</code>的形式保存所有的整数。计算规则：</p>
+<ul>
+<li>正数：<code>原码</code>、<code>补码</code>和<code>反码</code>完全相同；</li>
+<li>负数：<code>反码</code>是对<code>原码</code>按位取反（<code>符号位</code>不变），补码是<code>反码</code>+1。</li>
+</ul>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00000001</span>
+                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00000001</span>
+                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00000001</span>
+
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00000001</span>
+                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11111110 （原码的基础上按位取反，符号位不变）</span>
+                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11111111</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>0b11111111_11111111_11111111_11111111<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//所有操作都是用补码去完成的。输出值为-1</span></code></pre>
+<blockquote>
+<p>最高位代表符号位 1位负数，0位正数。</p>
+</blockquote>
+<h3 id="2-位运算符"><a href="#2-位运算符" class="headerlink" title="2.位运算符"></a>2.位运算符</h3><p>&emsp;&emsp;<code>Java</code>支持的位运算符有7种。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>中文名称</th>
+<th>运算法则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>与（且）</td>
+<td>二进制按位操作，都为1才返回1。（都真才是真，见假就是假）</td>
+</tr>
+<tr>
+<td>|</td>
+<td>或</td>
+<td>二进制按位操作，有1就返回1。（见真就是真，都假才是假）</td>
+</tr>
+<tr>
+<td>~</td>
+<td>非</td>
+<td>二进制按位操作，取反。1为0，0为1。</td>
+</tr>
+<tr>
+<td>^</td>
+<td>异或</td>
+<td>二进制按位操作，相同返回0，不同返回1。</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移</td>
+<td>整体右移，右边舍弃，左边（负数补1，正数补0）</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>无符号右移</td>
+<td>整体右移，右边舍弃，左边补0</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移</td>
+<td>整体左移，左边舍弃，右边补0</td>
+</tr>
+</tbody></table>
+<h4 id="2-1-按位与（且）"><a href="#2-1-按位与（且）" class="headerlink" title="2.1 按位与（且）"></a>2.1 按位与（且）</h4><p>&emsp;&emsp;二进制按位操作，都为1才返回1。（都真才是真，见假就是假）。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位与</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16 &amp; -9]</span>
+    <span class="token comment" spellcheck="true">//因为结果是正数（最高位为0）所以原码、反码和补码一致</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>a <span class="token operator">&amp;</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为16</span></code></pre>
+<h4 id="2-2-按位或"><a href="#2-2-按位或" class="headerlink" title="2.2 按位或"></a>2.2 按位或</h4><p>&emsp;&emsp;二进制按位操作，有1就返回1。（见真就是真，都假才是假）</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位或</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][16 | -9]</span>
+    <span class="token comment" spellcheck="true">//因为结果是负数所以先求反码（补码-1）再求原码（反码除了最高位，其他按位取反）</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110110 [反码][16 | -9]</span>
+    <span class="token comment" spellcheck="true">//10000000 00000000 00000000 00001001 [原码][16 | -9 = -9]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>a <span class="token operator">|</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为-9</span></code></pre>
+<h4 id="2-3-按位非"><a href="#2-3-按位非" class="headerlink" title="2.3 按位非"></a>2.3 按位非</h4><p>&emsp;&emsp;二进制按位操作，取反。1为0，0为1。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位非</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11101111 [补码][~16]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11101110 [反码][~16]</span>
+    <span class="token comment" spellcheck="true">//10000000 00000000 00000000 00010001 [原码][~16 = -17]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">~</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//结果为-17</span>
+
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00001000 [补码][~-9]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span><span class="token operator">~</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//结果为8</span></code></pre>
+<h4 id="2-4-按位异或"><a href="#2-4-按位异或" class="headerlink" title="2.4 按位异或"></a>2.4 按位异或</h4><p>&emsp;&emsp;进制按位操作，相同返回0，不同返回1。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位异或</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11100111 [补码][16 ^ -9]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11100110 [反码][16 ^ -9]</span>
+    <span class="token comment" spellcheck="true">//10000000 00000000 00000000 00011001 [原码][16 ^ -9 = 25]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>a <span class="token operator">|</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为25</span></code></pre>
+<h4 id="2-5-右移"><a href="#2-5-右移" class="headerlink" title="2.5 右移"></a>2.5 右移</h4><p>&emsp;&emsp;整体右移，右边舍弃，左边（负数补1，正数补0）</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位右移 4</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00000001 [补码][16 >> 4]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">>></span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为1</span>
+
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11111111 [补码][-9 >> 4]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11111110 [反码][-9 >> 4]</span>
+    <span class="token comment" spellcheck="true">//10000000 00000000 00000000 00000001 [原码][-9 >> 4 = -1]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>b <span class="token operator">>></span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//结果为-1</span></code></pre>
+<h4 id="2-6-无符号右移"><a href="#2-6-无符号右移" class="headerlink" title="2.6 无符号右移"></a>2.6 无符号右移</h4><p>&emsp;&emsp;整体右移，右边舍弃，左边补0。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位无符号右移 4</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00000001 [补码][16 >>> 4]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">>>></span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为1</span>
+
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//00001111 11111111 11111111 11111111 [补码][-9 >>> 4]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>b <span class="token operator">>>></span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//结果为2的27次方</span></code></pre>
+<h4 id="2-7-左移"><a href="#2-7-左移" class="headerlink" title="2.7 左移"></a>2.7 左移</h4><p>&emsp;&emsp;整体左移，左边舍弃，右边补0。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//反码 00000000 00000000 00000000 00010000</span>
+                                    <span class="token comment" spellcheck="true">//补码 00000000 00000000 00000000 00010000</span>
+
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//原码 10000000 00000000 00000000 00001001</span>
+                                    <span class="token comment" spellcheck="true">//反码 11111111 11111111 11111111 11110110</span>
+                                    <span class="token comment" spellcheck="true">//补码 11111111 11111111 11111111 11110111</span>
+
+    <span class="token comment" spellcheck="true">//补码操作按位左移 4</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000000 00010000 [补码][16]</span>
+    <span class="token comment" spellcheck="true">//00000000 00000000 00000001 00000000 [补码][16 &lt;&lt; 4]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//结果为2的8次方（左移几次就是乘以2的几次方）</span>
+
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 11110111 [补码][-9]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 01110000 [补码][-9 &lt;&lt;&lt; 4]</span>
+    <span class="token comment" spellcheck="true">//11111111 11111111 11111111 01101111 [反码][-9 &lt;&lt;&lt; 4] </span>
+    <span class="token comment" spellcheck="true">//10000000 00000000 00000000 10010000 [原码][-9 &lt;&lt;&lt; 4 = -144]</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printlin</span><span class="token punctuation">(</span>b <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//结果为-144</span></code></pre>
+<h3 id="3-常见计算法则"><a href="#3-常见计算法则" class="headerlink" title="3. 常见计算法则"></a>3. 常见计算法则</h3><ul>
+<li>任何数左移（右移）32的倍数位等于该数本身。 <code>a &gt;&gt; 32 = a ; b &lt;&lt; 32 = b;</code></li>
+<li>在位移运算 <code>a &lt;&lt; b</code> 的计算中，若 <code>b</code> 为正数，则实际移动的位数为 <code>b % 32</code> ，若 <code>b</code> 为负数，则实际移动的位数为 <code>32 + b % 32</code> ；右移，同理。<code>a &lt;&lt; -1 等同 a &lt;&lt; 31;b &gt;&gt; -2 等同 b &gt;&gt; 30;</code></li>
+<li>两次异或同一个值等于自己。<code>a ^ b ^ b = a;</code><ol>
+<li>a ^ a = 0;</li>
+<li>a ^ 0 = a;</li>
+<li>a ^ b = b ^ a;</li>
+<li>a ^ b ^ b = a;</li>
+<li>a = b ^ c; 推导出 b = a ^ c;</li>
+</ol>
+</li>
+<li>左移是乘以2的幂，对应着右移则是除以2的幂。</li>
+</ul>
+<h3 id="4-应用"><a href="#4-应用" class="headerlink" title="4. 应用"></a>4. 应用</h3><h4 id="4-1-判断奇偶数"><a href="#4-1-判断奇偶数" class="headerlink" title="4.1 判断奇偶数"></a>4.1 判断奇偶数</h4><p>&emsp;&emsp;二进制怎么判断一个数是奇数还是偶数？最低位是 <code>0</code>它就是偶数，否则就是奇数。</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/**
+     * 判断是不是偶数
+     * 方法等同 a % 2
+     * @param number
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isEvenNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span> number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>number <span class="token operator">&amp;</span> <span class="token number">0b01</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="4-2-简单加密解密"><a href="#4-2-简单加密解密" class="headerlink" title="4.2 简单加密解密"></a>4.2 简单加密解密</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> password <span class="token operator">=</span> <span class="token number">123456</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//密码</span>
+    <span class="token keyword">int</span> privateKey <span class="token operator">=</span> <span class="token number">20190101</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//私钥</span>
+    <span class="token keyword">int</span> decodePwd <span class="token operator">=</span> password <span class="token operator">^</span> privateKey<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//加密后的密码</span>
+    <span class="token comment" spellcheck="true">//解密</span>
+    <span class="token keyword">int</span> encodePwd <span class="token operator">=</span> decodePwd <span class="token operator">^</span> privateKey<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//解密后的密码</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>encodePwd<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//123456</span></code></pre>
+<h4 id="4-3-绝对值"><a href="#4-3-绝对值" class="headerlink" title="4.3 绝对值"></a>4.3 绝对值</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> a <span class="token operator">:</span>  <span class="token operator">~</span><span class="token punctuation">(</span>a <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">abs1</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> b <span class="token operator">=</span> a <span class="token operator">>></span> <span class="token number">31</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取符号位</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">^</span> b<span class="token punctuation">)</span> <span class="token operator">-</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * {@link java.lang.Math}
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span>a <span class="token operator">:</span> a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="4-4-两个数据之间的交换"><a href="#4-4-两个数据之间的交换" class="headerlink" title="4.4 两个数据之间的交换"></a>4.4 两个数据之间的交换</h4><p>&emsp;&emsp;通常情况下实现两个数据之间交换，都是定义一个临时变量 <code>temp</code>去实现：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> temp<span class="token punctuation">;</span></code></pre>
+<p>&emsp;&emsp;通过异或计算法则 <code>a ^ b ^ b = a;</code> 可以使用如下方式实现数据交换:</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//(a ^ b) ^ b = a(a的原值)</span>
+    a <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// (a ^ b) ^ a = b(b已经经过一次赋值了，这个时候b的值就是a的原值)</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//2</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//1</span></code></pre>
+<h4 id="4-5-权限或者状态的应用"><a href="#4-5-权限或者状态的应用" class="headerlink" title="4.5 权限或者状态的应用"></a>4.5 权限或者状态的应用</h4><p>&emsp;&emsp;通常情况下我们都是定义一堆的常量来管理权限或者状态。今天我们用一种更高级的写法来实现：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Permission</span> <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_A <span class="token operator">=</span> <span class="token number">0x01</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//0001</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_B <span class="token operator">=</span> <span class="token number">0x02</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//0010</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_C <span class="token operator">=</span> <span class="token number">0x04</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//0100</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PERMISSION_D <span class="token operator">=</span> <span class="token number">0x08</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//1000</span>
+
+        <span class="token keyword">private</span> <span class="token keyword">int</span> permission<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * 设置权限
+         * @param permission
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">int</span> permission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>permission <span class="token operator">=</span> permission<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * 获取当前权限
+         * @return
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>permission<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * 添加一个或多个权限
+         * @param permission
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> permission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">contains</span><span class="token punctuation">(</span>permission<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>permission <span class="token operator">|=</span> permission<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * 删除一个或多个权限
+         * @param permission
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token keyword">int</span> permission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//这里有个陷阱，有些同学觉得可以直接this.permission ^= permission;</span>
+            <span class="token comment" spellcheck="true">//删除原先有的权限是没问题，但是当你删除原先没有的权限就会出问题啦。</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>permission <span class="token operator">&amp;=</span> <span class="token operator">~</span>permission<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/**
+         * 判断是否含有某些权限
+         * @param permission
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">contains</span><span class="token punctuation">(</span><span class="token keyword">int</span> permission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>permission <span class="token operator">&amp;</span> permission<span class="token punctuation">)</span> <span class="token operator">==</span> permission<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//如果需要判断权限不存在 (this.permission &amp; permission) == 0;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Permission permission <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Permission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            permission<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_D<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//1000</span>
+            permission<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_B<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//1010</span>
+
+            permission<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_A<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//false</span>
+            permission<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_D<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//true</span>
+
+            permission<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_B<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//1000</span>
+            permission<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_A<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//1000</span>
+
+            permission<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_C<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//1100</span>
+            permission<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Permission<span class="token punctuation">.</span>PERMISSION_A <span class="token operator">|</span> Permission<span class="token punctuation">.</span>PERMISSION_B<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1111</span>
+
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>permission<span class="token punctuation">.</span><span class="token function">getPermission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//15</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>同学们思考下关于删除权限。</p>
+<blockquote>
+<p><code>this.permission = (this.permission &amp; permission) ^ this.permission;</code></p>
+</blockquote>
+<p>这样实现是否可行？</p>
+</blockquote>
+<h3 id="5-位运算算法题"><a href="#5-位运算算法题" class="headerlink" title="5. 位运算算法题"></a>5. 位运算算法题</h3><blockquote>
+<p>有 1000 个一模一样的瓶子，其中有 999 瓶是普通的水，有一瓶是毒药。任何喝下毒药的生物都会在一星期之后死亡。现在，你只有 10 只小白鼠和一星期的时间，如何检验出哪个瓶子里有毒药？<a href="https://www.zhihu.com/question/19676641/answer/12613290" target="_blank" rel="noopener">来源:知乎.黄志聪</a></p>
+</blockquote>
+<p>&emsp;&emsp;刚看到这道题目的时候基本就是懵逼状态，算法不熟悉，位运算应用也差很多。网上很多大牛前辈都都给出了答案。<br>&emsp;&emsp;根据 <code>2^10 = 1024</code> ，所以 10个 老鼠可以确定 1000个 瓶子具体哪个瓶子有毒。具体实现跟 3个 老鼠确定 8个 瓶子原理一样。(意思就是3只老鼠确定8个瓶子中哪个瓶子有毒)<br>对每个瓶子进行编号0-7对每只老鼠编号1、2、3，然后列出每只老鼠去喝水的情况：(1代表喝，0代表不喝)</p>
+<table>
+<thead>
+<tr>
+<th>1号老鼠</th>
+<th>2号老鼠</th>
+<th>3号老鼠</th>
+<th>瓶子编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<p>从上图得知：</p>
+<ol>
+<li>1号老鼠喝水编号4、5、6、7；</li>
+<li>2号老鼠喝水编号2、3、6、7；</li>
+<li>3号老鼠喝水编号1、3、5、6。</li>
+</ol>
+<p>假设1号老鼠没死，2号老鼠死了，3号老鼠也死了。那么瓶子编号就是3（<code>011</code>），根据老鼠死亡情况就可以换算出瓶子编号。</p>
+<blockquote>
+<p>哈哈，我也在努力充电中，大家一起加油哦~。</p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wxpay.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '3608f51bf541e0843695',
+        clientSecret: '9ed570fceaa68af267954dfea5148d33c5bb4f0d',
+        repo: 'FinalLins.github.io',
+        owner: 'FinalLins',
+        admin: "FinalLins",
+        id: '2017-08-12T20-10-56',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/08/13/java-ji-chu-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="java基础-算法">
+                        
+                        <span class="card-title">java基础-算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+今日份毒鸡汤。
+
+真正努力过的人，就会真正明白，天赋有多么重要。
+
+😎
+
+1. 什么是算法&emsp;&emsp;算法（Algorithm）是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            <a href="/categories/Java/算法/" class="post-category" target="_blank">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java基础知识/" target="_blank">
+                        <span class="chip bg-color">Java基础知识</span>
+                    </a>
+                    
+                    <a href="/tags/算法/" target="_blank">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/08/11/java-ji-chu-shu-ju-lei-xing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="java基础-数据类型">
+                        
+                        <span class="card-title">java基础-数据类型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+今日份毒鸡汤，希望您笑口常开。
+
+一直对发型和身材不满意的人，有一个共同点：不肯承认这是脸的问题。
+
+😋
+
+&emsp;&emsp; Java 语言支持的类型分为两类：基本类型 Primitive Type 和引用类型 Refer
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-08-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java基础知识/" target="_blank">
+                        <span class="chip bg-color">Java基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: FinalLins<br />'
+            + '作者: FinalLins<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">21.8k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/FinalLins" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:dailinsong@aliyun.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=411153907@qq.com" class="tooltipped" data-tooltip="QQ联系我: 411153907@qq.com" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
