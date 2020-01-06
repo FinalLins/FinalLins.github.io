@@ -402,7 +402,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        935
+                        1.1k
                     </div>
                     
 
@@ -433,7 +433,13 @@
 <li>遍历待排序数组，它的值<code>value - min</code>作为临时数组B的下标，并且值+1（<code>B[value - min]++</code>）；</li>
 <li>最后遍历临时数组B将它展开赋值给原数组。</li>
 </ol>
-<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a>2. 代码实现</h3><h4 id="2-1-写法一"><a href="#2-1-写法一" class="headerlink" title="2.1 写法一"></a>2.1 写法一</h4><pre class=" language-java"><code class="language-java">Class <span class="token class-name">Count</span> <span class="token punctuation">{</span>
+<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a>2. 代码实现</h3><h4 id="2-1-写法一"><a href="#2-1-写法一" class="headerlink" title="2.1 写法一"></a>2.1 写法一</h4><ol>
+<li>遍历获取最小值<code>min</code>和最大值<code>max</code>；</li>
+<li>创建临时数组B，长度为<code>max - min + 1</code>；</li>
+<li>遍历待排序数组，它的值<code>value - min</code>作为临时数组B的下标，并且值+1（<code>B[value - min]++</code>）</li>
+<li>最后遍历临时数组B将它展开赋值给原数组。</li>
+</ol>
+<pre class=" language-java"><code class="language-java">Class <span class="token class-name">Count</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String name <span class="token operator">=</span> <span class="token string">"计数排序"</span><span class="token punctuation">;</span>
 
@@ -499,7 +505,14 @@
 <blockquote>
 <p>[2, 0, 0, 1, 1, 1, 1, 0, 1] //<br>[0, 1, 2, 3, 4, 5, 6, 7, 8] //编号（其实就是B数组的下标）<br>我们看第三步 B数组下标怎么计算出来的，是通过原数组的值减去最小值。(value - min)<br>那么反过来原数组的值是不是就等于 下标加上最小值呢？ value = i + min</p>
 </blockquote>
-<h4 id="2-2-写法二"><a href="#2-2-写法二" class="headerlink" title="2.2 写法二"></a>2.2 写法二</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sort11</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h4 id="2-2-写法二"><a href="#2-2-写法二" class="headerlink" title="2.2 写法二"></a>2.2 写法二</h4><ol>
+<li>遍历获取最小值<code>min</code>和最大值<code>max</code>；</li>
+<li>创建临时数组B，长度为<code>max - min + 1</code>；</li>
+<li>遍历待排序数组，它的值<code>value - min</code>作为临时数组B的下标，并且值+1（<code>B[value - min]++</code>）</li>
+<li>对所有的计数累加</li>
+<li>逆序遍历源数组，找到元素正确位置，逆序是为了保证不破坏稳定性</li>
+</ol>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">sort11</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> null <span class="token operator">||</span> arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
@@ -736,30 +749,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/03/28/java-ji-chu-ji-shu-pai-xu/">
+                <a href="/2017/03/29/java-ji-chu-tong-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="java基础-计数排序">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="java基础-桶排序">
                         
-                        <span class="card-title">java基础-计数排序</span>
+                        <span class="card-title">java基础-桶排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 概述&emsp;&emsp;计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，它的复杂度为Ο(n+k)（其中k是整数的范围），快于任何比较排序算法
+                            1. 概述&emsp;&emsp;桶排序 (Bucket sort)或所谓的箱排序，是一个排序算法，工作的原理是将数组分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序）。桶排序是鸽巢排序
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-03-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-03-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -776,7 +788,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1007,7 +1018,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">23.4k</span>
+                <span class="white-color">24.6k</span>
             
 
             
